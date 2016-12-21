@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="red">#b71c1c</color>
+    <color name="yellow">#ffd600</color>
+    <color name="cyan">#18ffff</color>
+    <color name="blue_light">#29b6f6</color>
+    <color name="orange">#ff5722</color>
+    <color name="purple">#aa00ff</color>
+    <color name="green">#00e676</color>
+    <color name="grey">#78909c</color>
+    <color name="white">#ffffff</color>
+
+    <color name="maingeometrycolor">#242f3e</color>
+    <color name="adminstartivelabel">#746855</color>
+    <color name="administativelocality">#d59563</color>
+    <color name="poitext">#d59563</color>
+    <color name="poiparkbackground">#d59563</color>
+    <color name="poilabel">#6b9a76</color>
+    <color name="roadbackground">#2b3544</color>
+    <color name="roadlabel">#9ca5b3</color>
+    <color name="roadarterialbackground">#38414e</color>
+    <color name="roadarterialstroke">#212a37</color>
+    <color name="roadhighway">#746855</color>
+    <color name="roadhighwaylabel">#f3d19c</color>
+    <color name="roadhighwaystroke">#1f2835</color>
+    <color name="roadlocal">#38414e</color>
+    <color name="roadlocalstroke">#212a37</color>
+    <color name="transit">#2f3948</color>
+    <color name="transitstationtext">#d59563</color>
+    <color name="water">#17263c</color>
+    <color name="waterlabel">#515c6d</color>
+</resources>
