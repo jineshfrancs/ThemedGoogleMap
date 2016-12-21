@@ -404,6 +404,7 @@ public class GoogleMapStyler {
 
         /**
          * Sets custom feature color to be applied
+         * for more details visit https://developers.google.com/maps/documentation/javascript/style-reference
          *
          * @param featureType type of feature to be added
          * @param elementType element in which property to be applied
@@ -417,6 +418,7 @@ public class GoogleMapStyler {
 
         /**
          * Sets custom feature lightness to be applied
+         * for more details visit https://developers.google.com/maps/documentation/javascript/style-reference
          *
          * @param featureType type of feature to be added
          * @param elementType element in which property to be applied
