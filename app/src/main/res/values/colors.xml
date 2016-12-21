@@ -13,6 +13,7 @@
     <color name="green">#00e676</color>
     <color name="grey">#78909c</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 
     <color name="maingeometrycolor">#242f3e</color>
     <color name="adminstartivelabel">#746855</color>
