@@ -1,7 +1,7 @@
 # ThemedGoogleMap
 Utility class to make GoogleMap with custom theme.
 
-<img src="https://github.com/jineshfrancs/ThemedGoogleMap/blob/master/screens/screen1.png" width="240" height="400">  <img src="https://github.com/jineshfrancs/ThemedGoogleMap/blob/master/screens/screen2.png" width="240" height="400">  <img src="https://github.com/jineshfrancs/ThemedGoogleMap/blob/master/screens/screen3.png" width="240" height="400">
+<img src="https://github.com/jineshfrancs/ThemedGoogleMap/blob/master/screens/screen1.png" width="240" height="400">  <img src="https://github.com/jineshfrancs/ThemedGoogleMap/blob/master/screens/screen4.png" width="240" height="400">  <img src="https://github.com/jineshfrancs/ThemedGoogleMap/blob/master/screens/screen3.png" width="240" height="400">
 
 Create your own theme like this
 
