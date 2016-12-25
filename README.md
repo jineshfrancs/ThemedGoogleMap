@@ -6,32 +6,38 @@ Utility class to make GoogleMap with custom theme.
 Create your own theme like this
 
 ```
- GoogleMapStyler googleMapStyler = new GoogleMapStyler.Builder()
-                        .setMainGeometryColor(ContextCompat.getColor(MainActivity.this, R.color.maingeometrycolor))
+GoogleMapStyler googleMapStyler = new GoogleMapStyler.Builder(MainActivity.this)
+                        .setMainGeometryColorRes(R.color.maingeometrycolor)
                         .setAllPlaceTextStrokeAlpha(-80)
-                        .setAllPlaceTextColor(ContextCompat.getColor(MainActivity.this, R.color.adminstartivelabel))
-                        .setAllMainTownTextColor(ContextCompat.getColor(MainActivity.this, R.color.administativelocality))
-                        .setAllPoiTextColor(ContextCompat.getColor(MainActivity.this, R.color.poitext))
-                        .setAllPoiParkBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.poiparkbackground))
-                        .setAllPoiParkTextColor(ContextCompat.getColor(MainActivity.this, R.color.poilabel))
-                        .setAllRoadBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.roadbackground))
-                        .setAllRoadTextColor(ContextCompat.getColor(MainActivity.this, R.color.roadlabel))
-                        .setAllRoadArterialBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.roadarterialbackground))
-                        .setAllRoadArterialStrokeColor(ContextCompat.getColor(MainActivity.this, R.color.roadarterialstroke))
-                        .setAllRoadHighwayBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.roadhighway))
-                        .setAllRoadHighwayStrokeColor(ContextCompat.getColor(MainActivity.this, R.color.roadhighwaystroke))
-                        .setAllRoadHighwayTextColor(ContextCompat.getColor(MainActivity.this, R.color.roadhighwaylabel))
-                        .setAllRoadLocalBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.roadlocal))
-                        .setAllRoadLocalStrokeColor(ContextCompat.getColor(MainActivity.this, R.color.roadlocalstroke))
-                        .setAllTransitStationTextColor(ContextCompat.getColor(MainActivity.this, R.color.transitstationtext))
-                        .setAllTransitBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.transit))
-                        .setAllWaterTextColor(ContextCompat.getColor(MainActivity.this, R.color.waterlabel))
-                        .setAllWaterBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.water))
+                        .setAllPlaceTextColorRes(R.color.adminstartivelabel)
+                        .setAllMainTownTextColorRes(R.color.administativelocality)
+                        .setAllPoiTextColorRes(R.color.poitext)
+                        .setAllPoiParkBackgroundColorRes(R.color.poiparkbackground)
+                        .setAllPoiParkTextColorRes(R.color.poilabel)
+                        .setAllRoadBackgroundColorRes(R.color.roadbackground)
+                        .setAllRoadTextColorRes(R.color.roadlabel)
+                        .setAllRoadArterialBackgroundColorRes(R.color.roadarterialbackground)
+                        .setAllRoadArterialStrokeColorRes(R.color.roadarterialstroke)
+                        .setAllRoadHighwayBackgroundColorRes(R.color.roadhighway)
+                        .setAllRoadHighwayStrokeColorRes(R.color.roadhighwaystroke)
+                        .setAllRoadHighwayTextColorRes(R.color.roadhighwaylabel)
+                        .setAllRoadLocalBackgroundColorRes(R.color.roadlocal)
+                        .setAllRoadLocalStrokeColorRes(R.color.roadlocalstroke)
+                        .setAllTransitStationTextColorRes(R.color.transitstationtext)
+                        .setAllTransitBackgroundColorRes(R.color.transit)
+                        .setAllWaterTextColorRes(R.color.waterlabel)
+                        .setAllWaterBackgroundColorRes(R.color.water)
                         .setAllWaterTextStrokeAlpha(-20)
                         .build();
+
+// Alternatively to use a Color int, remove the Res from the method name
+// Example:
+// setMainGeometryColorRes(Color.BLACK)
+                        
 ```
 Apply generated style to google map
 
 ```
  googleMap.setMapStyle(googleMapStyler.getMapStyleOptions());
 ```
+
