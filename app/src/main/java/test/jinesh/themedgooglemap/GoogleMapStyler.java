@@ -1,5 +1,10 @@
 package test.jinesh.themedgooglemap;
 
+import android.content.Context;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.v4.content.ContextCompat;
+
 import com.google.android.gms.maps.model.MapStyleOptions;
 
 /**
@@ -122,20 +127,25 @@ public class GoogleMapStyler {
      */
     static class Builder {
         /**
-         * map style to be applied
+         * Map style to be applied
          */
         private GoogleMapStyler googleMapStyler;
         /**
-         * generated json string of map style
+         * Generated json string of map style
          */
         private StringBuilder json;
+        /**
+         * Application context
+         */
+        private Context context;
 
         /**
          * Builder class constructor
          */
-        public Builder() {
-            googleMapStyler = new GoogleMapStyler();
-            json = new StringBuilder();
+        public Builder(Context context) {
+            this.googleMapStyler = new GoogleMapStyler();
+            this.json = new StringBuilder();
+            this.context = context;
             init();
         }
 
@@ -178,10 +188,19 @@ public class GoogleMapStyler {
          *
          * @param color background color to be applied
          */
-        public Builder setMainGeometryColor(int color) {
+        public Builder setMainGeometryColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ALL, GEOMETRY, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets background color for all the continentals
+         *
+         * @param color resource of background color to be applied
+         */
+        public Builder setMainGeometryColorRes(@ColorRes int color) {
+            return setMainGeometryColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -195,14 +214,23 @@ public class GoogleMapStyler {
         }
 
         /**
-         * Sets  color for all the place texts excluding water label text,main city text etc.
+         * Sets  color for all the place texts excluding water label text, main city text etc.
          *
          * @param color color to be applied for the label
          */
-        public Builder setAllPlaceTextColor(int color) {
+        public Builder setAllPlaceTextColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ADMINISTRATIVE, LABELS_TEXT_FILL, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets  color for all the place texts excluding water label text, main city text etc.
+         *
+         * @param color color resource to be applied for the label
+         */
+        public Builder setAllPlaceTextColorRes(@ColorRes int color) {
+            return setAllPlaceTextColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -210,10 +238,19 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied for the label
          */
-        public Builder setAllMainTownTextColor(int color) {
+        public Builder setAllMainTownTextColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ADMINISTRATIVE_LOCALITY, LABELS_TEXT_FILL, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets color for all main city labels.
+         *
+         * @param color color resource to be applied for the label
+         */
+        public Builder setAllMainTownTextColorRes(@ColorRes int color) {
+            return setAllMainTownTextColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -221,32 +258,59 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied for the label
          */
-        public Builder setAllPoiTextColor(int color) {
+        public Builder setAllPoiTextColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(POI, LABELS_TEXT_FILL, COLOR, mColor);
             return this;
         }
 
         /**
-         * Sets background color for all resturant parks.
+         * Sets color for all resturant labels.
          *
-         * @param color color to be applied for resturant parks
+         * @param color color resource to be applied for the label
          */
-        public Builder setAllPoiParkBackgroundColor(int color) {
+        public Builder setAllPoiTextColorRes(@ColorRes int color) {
+            return setAllPoiParkTextColor(ContextCompat.getColor(context, color));
+        }
+
+        /**
+         * Sets background color for all restaurant parks.
+         *
+         * @param color color to be applied for restaurant parks
+         */
+        public Builder setAllPoiParkBackgroundColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(POI_PARK, GEOMETRY, COLOR, mColor);
             return this;
         }
 
         /**
-         * Sets color for all resturant park labels.
+         * Sets background color for all restaurant parks.
+         *
+         * @param color color resource to be applied for restaurant parks
+         */
+        public Builder setAllPoiParkBackgroundColorRes(@ColorRes int color) {
+            return setAllPoiParkBackgroundColor(ContextCompat.getColor(context, color));
+        }
+
+        /**
+         * Sets color for all restaurant park labels.
          *
          * @param color color to be applied for the label
          */
-        public Builder setAllPoiParkTextColor(int color) {
+        public Builder setAllPoiParkTextColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(POI_PARK, LABELS_TEXT_FILL, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets color for all restaurant park labels.
+         *
+         * @param color color resource to be applied for the label
+         */
+        public Builder setAllPoiParkTextColorRes(@ColorRes int color) {
+            return setAllPoiParkTextColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -254,10 +318,19 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied for the road
          */
-        public Builder setAllRoadBackgroundColor(int color) {
+        public Builder setAllRoadBackgroundColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ROAD, GEOMETRY_FILL, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets color for all roads.
+         *
+         * @param color color resource to be applied for the road
+         */
+        public Builder setAllRoadBackgroundColorRes(@ColorRes int color) {
+            return setAllRoadBackgroundColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -265,32 +338,59 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied for the label
          */
-        public Builder setAllRoadTextColor(int color) {
+        public Builder setAllRoadTextColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ROAD, LABELS_TEXT_FILL, COLOR, mColor);
             return this;
         }
 
         /**
-         * Sets color for all arterial roads.arterial means important route in a system of roads, railway lines, or rivers.
+         * Sets label color for all roads.
+         *
+         * @param color color resource to be applied for the label
+         */
+        public Builder setAllRoadTextColorRes(@ColorRes int color) {
+            return setAllRoadTextColor(ContextCompat.getColor(context, color));
+        }
+
+        /**
+         * Sets color for all arterial roads. Arterial means important route in a system of roads, railway lines, or rivers.
          *
          * @param color color to be applied
          */
-        public Builder setAllRoadArterialBackgroundColor(int color) {
+        public Builder setAllRoadArterialBackgroundColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ROAD_ARTERIAL, GEOMETRY_FILL, COLOR, mColor);
             return this;
         }
 
         /**
-         * Sets stroke color for all arterial roads.arterial means important route in a system of roads, railway lines, or rivers.
+         * Sets color for all arterial roads. Arterial means important route in a system of roads, railway lines, or rivers.
+         *
+         * @param color color resource to be applied
+         */
+        public Builder setAllRoadArterialBackgroundColorRes(@ColorRes int color) {
+            return setAllRoadArterialBackgroundColor(ContextCompat.getColor(context, color));
+        }
+
+        /**
+         * Sets stroke color for all arterial roads. Arterial means important route in a system of roads, railway lines, or rivers.
          *
          * @param color color to be applied for the stroke
          */
-        public Builder setAllRoadArterialStrokeColor(int color) {
+        public Builder setAllRoadArterialStrokeColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ROAD_ARTERIAL, GEOMETRY_STROKE, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets stroke color for all arterial roads. Arterial means important route in a system of roads, railway lines, or rivers.
+         *
+         * @param color color resource to be applied for the stroke
+         */
+        public Builder setAllRoadArterialStrokeColorRes(@ColorRes int color) {
+            return setAllRoadArterialStrokeColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -298,10 +398,19 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied
          */
-        public Builder setAllRoadHighwayBackgroundColor(int color) {
+        public Builder setAllRoadHighwayBackgroundColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ROAD_HIGHWAY, GEOMETRY_FILL, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets color for all highway roads.
+         *
+         * @param color color resource to be applied
+         */
+        public Builder setAllRoadHighwayBackgroundColorRes(@ColorRes int color) {
+            return setAllRoadHighwayBackgroundColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -309,10 +418,19 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied for the stoke
          */
-        public Builder setAllRoadHighwayStrokeColor(int color) {
+        public Builder setAllRoadHighwayStrokeColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ROAD_HIGHWAY, GEOMETRY_STROKE, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets stroke color for all highway roads.
+         *
+         * @param color color resource to be applied for the stoke
+         */
+        public Builder setAllRoadHighwayStrokeColorRes(@ColorRes int color) {
+            return setAllRoadHighwayStrokeColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -320,10 +438,19 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied for the label
          */
-        public Builder setAllRoadHighwayTextColor(int color) {
+        public Builder setAllRoadHighwayTextColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ROAD_HIGHWAY, LABELS_TEXT_FILL, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets color for labels in all highway roads.
+         *
+         * @param color color resource to be applied for the label
+         */
+        public Builder setAllRoadHighwayTextColorRes(@ColorRes int color) {
+            return setAllRoadHighwayTextColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -331,10 +458,19 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied
          */
-        public Builder setAllRoadLocalBackgroundColor(int color) {
+        public Builder setAllRoadLocalBackgroundColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ROAD_LOCAL, GEOMETRY_FILL, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets color for all local roads.
+         *
+         * @param color color resource to be applied
+         */
+        public Builder setAllRoadLocalBackgroundColorRes(@ColorRes int color) {
+            return setAllRoadLocalBackgroundColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -342,10 +478,19 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied for the stroke
          */
-        public Builder setAllRoadLocalStrokeColor(int color) {
+        public Builder setAllRoadLocalStrokeColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(ROAD_LOCAL, GEOMETRY_STROKE, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets stroke color for all local roads.
+         *
+         * @param color color resource to be applied for the stroke
+         */
+        public Builder setAllRoadLocalStrokeColorRes(@ColorRes int color) {
+            return setAllRoadLocalStrokeColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -353,10 +498,19 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied
          */
-        public Builder setAllTransitBackgroundColor(int color) {
+        public Builder setAllTransitBackgroundColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(TRANSIT, GEOMETRY, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets color for all transits.
+         *
+         * @param color color resource to be applied
+         */
+        public Builder setAllTransitBackgroundColorRes(@ColorRes int color) {
+            return setAllTransitBackgroundColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -371,14 +525,32 @@ public class GoogleMapStyler {
         }
 
         /**
+         * Sets label color for all transit stations.
+         *
+         * @param color color resource to be applied for the label
+         */
+        public Builder setAllTransitStationTextColorRes(int color) {
+            return setAllTransitStationTextColor(ContextCompat.getColor(context, color));
+        }
+
+        /**
          * Sets color for water.
          *
          * @param color color to be applied
          */
-        public Builder setAllWaterBackgroundColor(int color) {
+        public Builder setAllWaterBackgroundColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(WATER, GEOMETRY, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets color for water.
+         *
+         * @param color color resource to be applied
+         */
+        public Builder setAllWaterBackgroundColorRes(@ColorRes int color) {
+            return setAllWaterBackgroundColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -386,10 +558,19 @@ public class GoogleMapStyler {
          *
          * @param color color to be applied for the label
          */
-        public Builder setAllWaterTextColor(int color) {
+        public Builder setAllWaterTextColor(@ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(WATER, LABELS_TEXT_FILL, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets color for labels in water.
+         *
+         * @param color color resource to be applied for the label
+         */
+        public Builder setAllWaterTextColorRes(@ColorRes int color) {
+            return setAllWaterTextColor(ContextCompat.getColor(context, color));
         }
 
         /**
@@ -410,10 +591,22 @@ public class GoogleMapStyler {
          * @param elementType element in which property to be applied
          * @param color       color to be applied
          */
-        public Builder setCustomFeatureColor(String featureType, String elementType, int color) {
+        public Builder setCustomFeatureColor(String featureType, String elementType, @ColorInt int color) {
             String mColor = HASH_SYMBOL + Integer.toHexString(color);
             createFeature(featureType, elementType, COLOR, mColor);
             return this;
+        }
+
+        /**
+         * Sets custom feature color to be applied
+         * for more details visit https://developers.google.com/maps/documentation/javascript/style-reference
+         *
+         * @param featureType type of feature to be added
+         * @param elementType element in which property to be applied
+         * @param color       color resource to be applied
+         */
+        public Builder setCustomFeatureColorRes(String featureType, String elementType, @ColorRes int color) {
+            return setCustomFeatureColor(featureType, elementType, ContextCompat.getColor(context, color));
         }
 
         /**
