@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#304ffe</color>
+    <color name="colorPrimaryDark">#304ffe</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="red">#b71c1c</color>
@@ -34,4 +34,9 @@
     <color name="transitstationtext">#d59563</color>
     <color name="water">#17263c</color>
     <color name="waterlabel">#515c6d</color>
+
+    <color name="sea">#46BCEC</color>
+    <color name="mainBack">#ECECEC</color>
+    <color name="road">#D9D9D9</color>
+    <color name="label">#616161</color>
 </resources>

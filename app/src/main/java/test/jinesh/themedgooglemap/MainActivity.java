@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+
+import test.jinesh.lib.GoogleMapStyler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((MapFragment) getFragmentManager().findFragmentById(
+        ((SupportMapFragment) getSupportFragmentManager().findFragmentById(
                 R.id.vM_apnrm_map)).getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAllWaterTextStrokeAlpha(-20)
                         .build();
                 boolean success = googleMap.setMapStyle(googleMapStyler.getMapStyleOptions());
+                googleMap.setBuildingsEnabled(true);
             }
         });
 

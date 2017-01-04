@@ -1,4 +1,4 @@
-package test.jinesh.themedgooglemap;
+package test.jinesh.lib;
 
 import android.content.Context;
 import android.support.annotation.ColorInt;
@@ -125,7 +125,7 @@ public class GoogleMapStyler {
     /**
      * Builder class to generate the map style
      */
-    static class Builder {
+    public static class Builder {
         /**
          * Map style to be applied
          */

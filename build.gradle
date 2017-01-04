@@ -11,10 +11,12 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+repositories {
+    mavenCentral()
+}
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 
