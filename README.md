@@ -32,7 +32,7 @@ GoogleMapStyler googleMapStyler = new GoogleMapStyler.Builder(MainActivity.this)
 
 // Alternatively to use a Color int, remove the Res from the method name
 // Example:
-// setMainGeometryColorRes(Color.BLACK)
+// setMainGeometryColor(Color.BLACK)
                         
 ```
 Apply generated style to google map
