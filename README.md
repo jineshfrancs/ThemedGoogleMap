@@ -1,6 +1,4 @@
 # ThemedGoogleMap
-<a target="_blank" href="https://www.paypal.me/javiersantos" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
-
 Utility class to make GoogleMap with custom theme.
 
 <img src="https://github.com/jineshfrancs/ThemedGoogleMap/blob/master/screens/screen1.png" width="240" height="400">  <img src="https://github.com/jineshfrancs/ThemedGoogleMap/blob/master/screens/screen4.png" width="240" height="400">  <img src="https://github.com/jineshfrancs/ThemedGoogleMap/blob/master/screens/screen3.png" width="240" height="400">
