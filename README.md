@@ -5,7 +5,7 @@ Utility class to make GoogleMap with custom theme.
 
 Create your own theme like this
 
-```
+```java
 GoogleMapStyler googleMapStyler = new GoogleMapStyler.Builder(MainActivity.this)
                         .setMainGeometryColorRes(R.color.maingeometrycolor)
                         .setAllPlaceTextStrokeAlpha(-80)
@@ -37,14 +37,14 @@ GoogleMapStyler googleMapStyler = new GoogleMapStyler.Builder(MainActivity.this)
 ```
 Apply generated style to google map
 
-```
+```java
  googleMap.setMapStyle(googleMapStyler.getMapStyleOptions());
 ```
 Use in your project
 ------
 
 1.Add it in your root build.gradle at the end of repositories:
-```
+```gradle
 	allprojects {
 		repositories {
 			...
@@ -54,7 +54,7 @@ Use in your project
 ```
 
 2.Add the dependency in your app build.gradle file:
-```
+```gradle
 dependencies {
 	       compile 'com.github.jineshfrancs:ThemedGoogleMap:1.0'
 }
